@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library Management System</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+   /* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #057180;
+    padding: 10px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+}
+
+.logo img {
+    max-width: 40px;
+}
+
+.nav-links ul {
+    list-style-type: none;
+    display: flex;
+}
+
+.nav-links ul li {
+    margin: 0 20px;
+}
+
+.nav-links ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.nav-links ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Hamburger menu (hidden on larger screens) */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    text-decoration: dashed;
+}
+
+.hamburger .bar {
+    width: 25px;
+    height: 4px;
+    background-color: white;
+    margin: 5px 0;
+    
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        width: 100%;
+        text-align: left;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: #057180;
+        padding: 10px 20px;
+        text-decoration: dashed;
+    }
+
+    .nav-links.active {
+        display: block;
+    }
+
+    .nav-links ul {
+        flex-direction: column;
+        width: 100%;
+        padding: 0;
+        text-decoration: dashed;
+
+    }
+
+    .nav-links ul li {
+        margin: 10px 0;
+        text-decoration: dashed;
+
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    /* Hide Logo on Mobile Screens */
+    .logo {
+      
+    }
+}
+
+   /* Main Content Section */
+   main {
+      padding: 30px 10%;
+    }
+
+    .dashboard {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .dashboard-card {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .dashboard-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .dashboard-card h3 {
+      margin-bottom: 15px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .dashboard-card p {
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .dashboard-card a {
+      display: inline-block;
+      background-color: #FF5722;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .dashboard-card a:hover {
+      background-color: #e64a19;
+    }
+
+    /* Footer Section */
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      font-size: 14px;
+    }
+
+  </style>
+</head>
+
+<body>
+  <!-- Header Section -->
+   <!-- Navbar -->
+   <header>
+    <div class="navbar">
+        <!-- Logo on the left side -->
+        <div class="logo">
+            <img src="logo.jpg" alt="Logo" class="logo-img">
+        </div>
+        
+        <!-- Navbar buttons centered -->
+        <nav class="nav-links">
+            <ul>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#support">Support</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+                <li><a href="#calendar">Calendar</a></li>
+            </ul>
+        </nav>
+
+        <!-- Hamburger menu (for mobile view) -->
+        <div class="hamburger" id="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </div>
+</header>
+
+  <!-- Main Content Section -->
+  <main>
+    <section class="dashboard">
+      <div class="dashboard-card" id="articles">
+        <h3>Manage Articles</h3>
+        <p>Add, edit, and delete articles in the library.</p>
+        <a href="#">Go to Articles</a>
+      </div>
+      <div class="dashboard-card" id="settings">
+        <h3>Library Settings</h3>
+        <p>Configure library settings like working hours, and notifications.</p>
+        <a href="#">Go to Settings</a>
+      </div>
+      <div class="dashboard-card" id="transactions">
+        <h3>Library Transactions</h3>
+        <p>Track borrowing, returning, and overdue transactions.</p>
+        <a href="#">Go to Transactions</a>
+      </div>
+      <div class="dashboard-card" id="memberships">
+        <h3>Library Membership</h3>
+        <p>Manage library membership plans and benefits.</p>
+        <a href="#">Go to Membership</a>
+      </div>
+      <div class="dashboard-card" id="members">
+        <h3>Library Members</h3>
+        <p>View and manage registered library members.</p>
+        <a href="#">Go to Members</a>
+      </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+      <p>&copy; 2024 Library Management System</p>
+    </footer>
+  </main>
+
+  <script>
+   // JavaScript to handle hamburger menu toggle
+const hamburger = document.getElementById("hamburger");
+const navLinks = document.querySelector(".nav-links");
+
+hamburger.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+});
+  </script>
+</body>
+</html>
